@@ -1,6 +1,6 @@
 import express from "express"
-import passport from "./services/passport"
-import authRoutes from "./routes/authRoutes"
+import authRoutes from "./routes/authRoutes.js"
+import passport from "./services/passport.js"
 
 
 const app = express()
