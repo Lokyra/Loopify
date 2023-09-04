@@ -4,7 +4,7 @@ import cookieSession from 'cookie-session'
 import authRoutes from './routes/authRoutes.js'
 import './models/User.js'
 import passport from "./services/passport.js"
-import keys from './config/key.js'
+import keys from './config/keys.js'
 
 mongoose.connect(keys.mongoURI)
 
