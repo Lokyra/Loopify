@@ -8,7 +8,7 @@ function App() {
     <div>
       <div>
       </div>
-      <h1>Emaily</h1>
+      <h1>Loopify</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
