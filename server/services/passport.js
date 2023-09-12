@@ -22,19 +22,17 @@ passport.use(
         clientSecret: keys.googleClientSecret,
         callbackURL: '/auth/google/callback'
     }, 
-    (accessToken, refreshToken, profile, done) => {
-        User.findOne({googleId: profile.id})
-        .then((existingUser)=> {
-            if (!existingUser) {
-                new User ({ googleId: profile.id }).save()
-                .then(user => done(null, user))
-            } else {
-                done(null, existingUser)
-            }
-        })
+    async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({googleId: profile.id}) 
 
-        
+        if (existingUser) {
+            done(null, existingUser)
+        } else {
+            const user = await new User ({ googleId: profile.id }).save()
+            done(null, user)
+        }
     })
+        
 )
 
 export default passport
